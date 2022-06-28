@@ -1,0 +1,43 @@
+.container {
+    padding: 5rem 5rem;
+}
+
+body {
+    width: 100%;
+    background-color: #000;
+    height: 100vh;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+}
+
+.menu__botao {
+    text-align: center;
+    width: 20rem;
+    margin-top: 2rem;
+
+    background-color: #6a04bd;
+    padding: 15px 22px 14px;
+    border-radius: 50px;
+
+    color: #fff;
+    font-weight: 500;
+    font-size: .9rem;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.menu__botao:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    color: #fff;
+    background-color: #540694;
+
+    text-decoration: none;
+}
