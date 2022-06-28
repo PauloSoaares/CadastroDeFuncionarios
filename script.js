@@ -8,48 +8,6 @@ const btnSalvar = document.querySelector('#btnSalvar')
 let itens
 let id
 
-const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? [] // pegando os itens do banco 
-const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens)) // setando os itens no BD
-
-function loadItens() {
-    itens = getItensBD()
-    tbody.innerHTML = ''
-    itens.forEach((item, index) => {
-        insertItem(item, index)
-    }) // carregando os dados do BD quando a pagina for carregada 
-}
-
-loadItens()
-
-function insertItem(item, index) {
-    let tr = document.createElement('tr')
-
-    tr.innerHTML = `
-        <td>${item.nome}</td>
-        <td>${item.funcao}</td>
-        <td>R$ ${item.salario}</td>
-        <td class= "acao">
-            <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
-        </td>
-        <td class="acao">
-            <button onclick="deleteItem(${index})"><i class=' bx bx-trash'></i></button>
-        </td>
-    `
-    //criando os itens na tabela html 
-    tbody.appendchild(tr)
-}
-
-function editItem(index) {
-
-    openModal(true, index)
-} // chamando a função "openModal"
-
-function deleteItem(index) {
-    itens.splice(index, 1)
-    setItensBD()
-    loadItens()
-}
-
 function openModal(edit = false, index = 0) {
     modal.classList.add('active') // modal visivel
 
@@ -71,6 +29,34 @@ function openModal(edit = false, index = 0) {
     }
 }
 
+function editItem(index) {
+
+    openModal(true, index)
+} // chamando a função "openModal"
+
+function deleteItem(index) {
+    itens.splice(index, 1)
+    setItensBD()
+    loadItens()
+}
+
+function insertItem(item, index) {
+    let tr = document.createElement('tr')
+  
+    tr.innerHTML = `
+      <td>${item.nome}</td>
+      <td>${item.funcao}</td>
+      <td>R$ ${item.salario}</td>
+      <td class="acao">
+        <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
+      </td>
+      <td class="acao">
+        <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+      </td>
+    `
+    tbody.appendChild(tr)
+  }
+
 btnSalvar.onclick = e => {
 
     if (sNome.value == '' || sFuncao.value == '' || sSalario.value == '') {
@@ -79,5 +65,30 @@ btnSalvar.onclick = e => {
 
     e.preventDefault();
 
-    if
+    if (id !== undefined) {
+        itens[id].nome = sNome.value
+        itens[id].funcao = sFuncao.value
+        itens[id].salario = sSalario.value
+    }   else {
+        itens.push({'nome': sNome.value, 'funcao': sFuncao.value, 'salario': sSalario.value})
+    }
+
+    setItensBD()
+
+    modal.classList.remove('active')
+    loadItens()
+    id = undefined
 }
+
+function loadItens() {
+    itens = getItensBD()
+    tbody.innerHTML = ''
+    itens.forEach((item, index) => {
+        insertItem(item, index)
+    }) // carregando os dados do BD quando a pagina for carregada 
+}
+
+const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? [] // pegando os itens do banco 
+const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens)) // setando os itens no BD
+
+loadItens()
