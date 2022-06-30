@@ -12,53 +12,55 @@
 </head>
 <body>
     <section class="menu container">
-        <div class="menu__botoes">
-            <div>
-                <a target="_blank" href="./cadastro.html" class="menu__botao">TABELAS DE FUNCIONARIOS</a>
-                <div class="container">
-                    <div class="header">
-                        <span>Funcionários</span>
-                    </div>
-                
-                    <div class="divTable">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Função</th>
-                                <th>Salário</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                
-                    <div class="modal-container">
-                        <div class="modal">
-                            <form>
-                            <label for="m-nome">Nome</label>
-                            <input id="m-nome" type="text" required />
-                    
-                            <label for="m-funcao">Função</label>
-                            <input id="m-funcao" type="text" required />
-                    
-                            <label for="m-salario">Salário</label>
-                            <input id="m-salario" type="number" required />
-                            <button id="btnSalvar">Salvar</button>
-                            </form>
-                        </div>
-                    </div>
-                
-                </div>
-              
-            </div>
+        <H1>INFORMAÇÕES DAS TABELAS</H1>
+        <div class="menu__fun">
             
-            <a target="_blank" href="./cadastrocli.html" class="menu__botao">TABELAS DE CLIENTES</a>
+            <div class="header">
+                <span>Funcionários</span>
+            </div>
+                
+            <div class="divTable">
+                <table>
+                    <thead>
+                        <tr>
+                         <th>Nome</th>
+                         <th>Função</th>
+                         <th>Salário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <a target="_blank" href="./cadastro.html" class="menu__botao">EDITAR TABELAS DE FUNCIONARIOS</a>
         </div>
+        
+        <div class="menu__cli">
+            <div class="header">
+                <span>Cadastro de clientes</span>
+            </div>
+          
+            <div class="divTable">
+                <table>
+                  <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Serviço</th>
+                            <th>A pagar</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+                </table>
+            </div>
+            <a target="_blank" href="./cadastrocli.html" class="menu__botao">EDITAR TABELAS DE CLIENTES</a>
+        </div>    
+        
         
     </section>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>

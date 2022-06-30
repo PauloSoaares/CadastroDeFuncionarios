@@ -55,7 +55,7 @@ function insertItem(item, index) {
       </td>
     `
     tbody.appendChild(tr)
-  }
+}
 
 btnSalvar.onclick = e => {
 
@@ -67,10 +67,10 @@ btnSalvar.onclick = e => {
 
     if (id !== undefined) {
         itens[id].nome = sNome.value
-        itens[id].funcao = sServico.value
-        itens[id].salario = sPagar.value
+        itens[id].servico = sServico.value
+        itens[id].pagar = sPagar.value
     }   else {
-        itens.push({'nome': sNome.value, 'sevico': sServico.value, 'pagar': sPagar.value})
+        itens.push({'nome': sNome.value, 'servico': sServico.value, 'pagar': sPagar.value})
     }
 
     setItensBD()

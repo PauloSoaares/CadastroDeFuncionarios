@@ -55,7 +55,7 @@ function insertItem(item, index) {
       </td>
     `
     tbody.appendChild(tr)
-  }
+}
 
 btnSalvar.onclick = e => {
 
