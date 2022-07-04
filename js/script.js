@@ -9,7 +9,7 @@ let itens
 let id
 
 function openModal(edit = false, index = 0) {
-    modal.classList.add('active') // modal visivel
+    modal.classList.add('active') // adicionado a cass "active" modal visivel
 
     modal.onclick = e => {
         if (e.target.className.indexOf('modal-container') !== -1) {
